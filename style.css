@@ -1,0 +1,44 @@
+* {
+margin: 0;
+padding: 0;
+list-style-type: none;
+outline: none;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+font-family: Helvetica, Arial;
+}
+
+div#out {
+width: 335px;
+height: 335px;
+margin: 20px auto;
+}
+
+p {
+text-align: center;
+}
+
+pre {
+margin-bottom: 20px;
+font-family: "Lucida Console", Monaco, monospace;
+font-size: 1.15rem;
+}
+
+a {
+margin: 0 0 20px;
+padding: 10px;
+text-decoration: none;
+color: #000;
+background: #eee;
+text-align: center;
+display: block;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+a:hover {
+background: #ccc;
+}
