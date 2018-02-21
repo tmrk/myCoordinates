@@ -21,9 +21,9 @@ function getCoordinates() {
         altitude = position.coords.altitude,
         accuracy = position.coords.accuracy;
 
-    var coords = 'Latitude: ' + precisionRound(latitude, 10) + '\n'
-               + 'Longitude: ' + precisionRound(longitude, 10) + '\n'
-               + 'Altitude: ' + precisionRound(altitude, 10) + '\n'
+    var coords = 'Latitude: ' + latitude + '\n'
+               + 'Longitude: ' + longitude + '\n'
+               + 'Altitude: ' + altitude + '\n'
                + 'Accuracy: ' + accuracy;
 
     output.innerHTML = ''
@@ -34,7 +34,7 @@ function getCoordinates() {
                      + '<a href="mailto:?Subject=My%20coordinates&body=' + encodeURIComponent(coords) + '">Send this in email</a>';
 
     var img = new Image();
-    img.src = 'https://maps.googleapis.com/maps/api/staticmap?size=335x335&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&zoom=15&size=300x300&sensor=false&key=' + googleApiKey;
+    img.src = 'https://maps.googleapis.com/maps/api/staticmap?size=335x300&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&zoom=15&size=300x300&style=feature:water|element:geometry.fill|lightness:100&sensor=false&key=' + googleApiKey;
     output.appendChild(img);
   }
 
