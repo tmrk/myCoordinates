@@ -34,17 +34,23 @@ function getCoordinates() {
                      + '<a href="mailto:tamas.marki@undp.org?Subject=My%20coordinates&body=' + encodeURIComponent(coords) + '">Send this in email</a>';
 
     var img = new Image();
-    img.src = 'https://maps.googleapis.com/maps/api/staticmap?size=335x300&zoom=15&style=saturation:-100&style=feature:water|element:geometry.fill|lightness:100&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&sensor=false&key=' + googleApiKey;
+    img.src = 'https://maps.googleapis.com/maps/api/staticmap?maptype=hybrid&size=335x300&zoom=16&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&sensor=false&key=' + googleApiKey;
     output.appendChild(img);
   }
 
   function error() {
-    output.innerHTML = 'Unable to retrieve your location';
+    output.innerHTML = '<p>Unable to retrieve your location.<br/><br/>Please try reloading the page!</p>';
   }
 
   output.innerHTML = '<p>Locating…</p>';
 
-  navigator.geolocation.getCurrentPosition(success, error);
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 30000,
+    maximumAge: 0
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
