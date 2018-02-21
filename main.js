@@ -34,7 +34,7 @@ function getCoordinates() {
                      + '<a class="button" href="mailto:tamas.marki@undp.org?Subject=My%20coordinates&body=' + encodeURIComponent(coords) + '">Send this in email</a>';
 
     var img = new Image();
-    img.src = 'https://maps.googleapis.com/maps/api/staticmap?maptype=hybrid&size=335x300&zoom=16&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&sensor=false&key=' + googleApiKey;
+    img.src = 'https://maps.googleapis.com/maps/api/staticmap?maptype=hybrid&size=335x280&zoom=16&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&sensor=false&key=' + googleApiKey;
 
     var imga = document.createElement('a');
     imga.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query=' + latitude + ',' + longitude);
