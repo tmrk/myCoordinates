@@ -31,11 +31,16 @@ function getCoordinates() {
                      + 'Longitude: &#9;' + precisionRound(longitude, 10) + '<br/>'
                      + 'Altitude: &#9;' + precisionRound(altitude, 10) + '<br/>'
                      + 'Accuracy: &#9;' + precisionRound(accuracy, 10) + '</pre>'
-                     + '<a href="mailto:tamas.marki@undp.org?Subject=My%20coordinates&body=' + encodeURIComponent(coords) + '">Send this in email</a>';
+                     + '<a class="button" href="mailto:tamas.marki@undp.org?Subject=My%20coordinates&body=' + encodeURIComponent(coords) + '">Send this in email</a>';
 
     var img = new Image();
     img.src = 'https://maps.googleapis.com/maps/api/staticmap?maptype=hybrid&size=335x300&zoom=16&center=' + latitude + ',' + longitude + '&markers=color:red%7C' + latitude + ',' + longitude + '&sensor=false&key=' + googleApiKey;
-    output.appendChild(img);
+
+    var imga = document.createElement('a');
+    imga.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query=' + latitude + ',' + longitude);
+
+    imga.appendChild(img);
+    output.appendChild(imga);
   }
 
   function error() {
